@@ -2,36 +2,54 @@
 import "bootstrap";
 import "./style.css";
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
-
 //write your code here
 
-const who = ["The dog", "My grandma", "His turtle", "My bird"];
-const action = ["ate", "peed", "crushed", "broke"];
-const what = ["my homework", "the keys", "the car"];
-const when = [
+var who = ["The dog", "My grandma", "His turtle", "My bird"];
+var action = ["ate", "peed", "crushed", "broke"];
+var what = ["my homework", "the keys", "the car"];
+var when = [
   "before the class",
   "right on time",
   "when I finished",
   "during my lunch",
   "while I was praying"
 ];
-function generateExcuse() {
-  const = [ Math.floor (Math.random () * who.length )];
-  return `${randomWho} ${randomAction} ${randomWhat} ${randomWhen}`;
+
+function generateElementPosition(array) {
+  console.log("get element");
+  console.log("select a random element from any array");
+
+  return Math.floor(Math.random() * array.length);
 }
-// Obtén el elemento HTML por su id
-const excuseElement = document.getElementById("excuse");
+
+window.onload = function generateExcuse() {
+  who[generateElementPosition(who)] +
+    action[generateElementPosition(action)] +
+    what[generateElementPosition(what)] +
+    when[generateElementPosition(when)];
+
+  let excuse = getElementbyId("excuse");
+  excuse.innerHTML = generateExcuse;
+};
+
+/*
+function generateExcuse() {
+
+    const randomWho = who[Math.floor(Math.random() * who.length)];
+    const randomAction = action[Math.floor(Math.random() * action.length)];
+    const randomWhat = what[Math.floor(Math.random() * what.length)];
+    const randomWhen = when[Math.floor(Math.random() * when.length)];
+  
+   return `${randomWho} ${randomAction} ${randomWhat} ${randomWhen}`;
+}
+
 // Genera la excusa y actualiza el contenido del elemento
 const randomExcuse = generateExcuse();
 excuseElement.textContent = randomExcuse;
 
 /*
+// Función para generar el random de cada array
 function random (){
-  const randomWho = who[Math.floor(Math.random() * who.length)];
-  const randomAction = action[Math.floor(Math.random() * action.length)];
-  const randomWhat = what[Math.floor(Math.random() * what.length)];
-  const randomWhen = when[Math.floor(Math.random() * when.length)];
+return aleatorio.random();
 }
-\*
+*/
